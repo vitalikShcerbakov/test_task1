@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Удалить контакт:</title>
+</head>
+<body>    
+        <div class="container">        
+            <h1>Вы точно хотите удалить запись {{ contact }}? </h1>   
+            <form method="POST"
+                action="{% url 'contacts:contact_delete' contact.pk %}">
+                  {% csrf_token %}
+                  <input type="submit" value="Да удалить">
+              </form>
+      
+      </div>  
+</body>

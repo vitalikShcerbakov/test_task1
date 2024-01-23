@@ -6,7 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+*.json
+
 # Distribution / packaging
+exported_data.json
+photo/
+cache/
 .Python
 build/
 develop-eggs/

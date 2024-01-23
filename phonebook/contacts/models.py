@@ -11,7 +11,7 @@ class Subdivision(models.Model):
 
 class Contact(models.Model):
     full_name = models.CharField(max_length=200)
-    image = models.ImageField(
+    photo = models.ImageField(
         'фото',
         upload_to='photo/',
         blank=True
@@ -24,3 +24,6 @@ class Contact(models.Model):
         null=True,
         related_name='contacts'
     )
+
+    def __str__(self):
+        return self.full_name

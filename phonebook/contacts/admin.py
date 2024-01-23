@@ -10,6 +10,7 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('phone',)
     empty_value_display = '-пусто-'
 
+
 @admin.register(Subdivision)
 class SubdivisionAdmin(admin.ModelAdmin):
     pass

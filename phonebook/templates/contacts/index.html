@@ -6,30 +6,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<article>
     <h1>Телефонный справочник</h1>
+    <h3>
+        <a href='{% url "contacts:add_contact" %}'> Добавить контакт</a>  |
+        <a href='{% url "contacts:subdivision_creat" %}'> Добавить Подразделение</a>  |
+        <a href='{% url "contacts:export_data" %}'> Экспорт данных json</a>  |
+    </h3>
 
  <table>
        <colgroup>
          <col style="background-color: rgb(0, 255, 0)"/>
          <col style="background-color: #ff8800" />
          <col style="background-color: rgb(105, 94, 199)" />
+         <col style="background-color: rgb(94, 199, 185)" />
        </colgroup>
        <tr>
          <th>ФИО</th>
          <th>Подразделение</th>
          <th>Телефон</th>
        </tr>
- {% for contact in contacts_list %}
-        <tr>
-        <td> <a href='{% url "contacts:contact_detail" contact.id %}'>{{ contact.full_name }}</a></td>
-        <td> {{ contact.subdivision }}</td>
-        <td> {{ contact.phone }}</td>
-        </tr>
+        {% for contact in contacts_list %}
+          <tr>
+          <td> <a href='{% url "contacts:contact_detail" contact.id %}'>{{ contact.full_name }}</a></td>
+          <td> {{ contact.subdivision }}</td>
+          <td> {{ contact.phone }}</td>
+          <td> 
+            <form method="GET"
+                action="{% url 'contacts:contact_edit' contact.id %}">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger"  value="Редактировать">
+            </form>
+          </td>
+          <td> 
+            <form method="GET"
+                action="{% url 'contacts:contact_delete' contact.id %}">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger"  value="Удалить">
+            </form>
+          </td>
+          </tr>
         {% endfor %}
     </table>
-
-</article>
-
-
-    
+</body>

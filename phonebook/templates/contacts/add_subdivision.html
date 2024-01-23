@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Добавить Подразделение:</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="container">        
+        <h1>Новая Категория </h1>
+        
+        <form method="post" enctype="multipart/form-data"
+             action="{% url 'contacts:subdivision_creat' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">
+            Add
+            </button>
+      </div>  
+</body>
+
+

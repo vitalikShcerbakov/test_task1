@@ -110,6 +110,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Устанавливаем полный путь к директории, куда будут загружаться файлы пользователей: обычно её называют media/.
 MEDIA_URL = '/photo/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'photo')

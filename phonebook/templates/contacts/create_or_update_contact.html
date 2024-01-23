@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Добавить контакт:</title>
+</head>
+<body>
+
+    <div class="container">    
+        <form method="post" enctype="multipart/form-data"
+          {% if is_edit %}
+             action="{% url 'contacts:contact_edit' contact.id %}"
+          {% else %}
+            action="{% url 'contacts:add_contact' %}"
+          {% endif %}>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">
+              {% if is_edit %} Сохранить {% else %} Добавить {% endif %}
+            </button>
+      </div>  
+</body>
