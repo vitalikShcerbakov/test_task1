@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Телефонный справочник</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<article>
+    <h1>Телефонный справочник</h1>
+
+ <table>
+       <colgroup>
+         <col style="background-color: rgb(0, 255, 0)"/>
+         <col style="background-color: #ff8800" />
+         <col style="background-color: rgb(105, 94, 199)" />
+       </colgroup>
+       <tr>
+         <th>ФИО</th>
+         <th>Подразделение</th>
+         <th>Телефон</th>
+       </tr>
+ {% for contact in contacts_list %}
+        <tr>
+        <td> <a href='{% url "contacts:contact_detail" contact.id %}'>{{ contact.full_name }}</a></td>
+        <td> {{ contact.subdivision }}</td>
+        <td> {{ contact.phone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</article>
+
+
+    

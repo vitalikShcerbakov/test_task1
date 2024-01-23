@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Пользователь: {{ contact.full_name }}</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<article>
+    <h1>Инфо:</h1>
+    {{ contact.full_name }}    
+    {{ contact.phone }}    
+    {{ contact.photo }}    
+    {{ contact.subdivision }}
+    
+    {% load thumbnail %}
+        {% thumbnail contact.image '960x339' crop="center" upscale=True as im %}
+          <img class="card-img my-2" src="{{ im.url }}">
+    {% endthumbnail %}
+
+</article>
+</body>
+
+
+    
