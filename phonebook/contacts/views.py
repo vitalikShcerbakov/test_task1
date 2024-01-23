@@ -4,15 +4,24 @@ from django.core.serializers import serialize
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import ContactForm, SubdivisionForm
+from .forms import ContactForm, SearchForm, SubdivisionForm
 from .models import Contact
 
 
 def index(request):
-    contacts_list = Contact.objects.all()
-    return render(request, 'contacts/index.html',
-                  context={
-                      'contacts_list': contacts_list})
+    search_form = SearchForm()
+
+    if 'search_query' in request.GET:
+        search_query = request.GET['search_query']
+        contacts_list = Contact.objects.filter(full_name__icontains=search_query)
+    else:
+        contacts_list = Contact.objects.all()
+
+    context = {
+        'search_form': search_form,
+        'contacts_list': contacts_list,
+    }
+    return render(request, 'contacts/index.html', context)
 
 
 def contact_detail(request, contact_id):

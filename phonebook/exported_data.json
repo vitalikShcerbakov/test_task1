@@ -28,5 +28,35 @@
       "phone": "5-55-55-55",
       "subdivision": 2
     }
+  },
+  {
+    "model": "contacts.contact",
+    "pk": 17,
+    "fields": {
+      "full_name": "Мария Казаченко",
+      "photo": "",
+      "phone": "е5454545",
+      "subdivision": 2
+    }
+  },
+  {
+    "model": "contacts.contact",
+    "pk": 18,
+    "fields": {
+      "full_name": "Виталий Борисович Гундяев",
+      "photo": "",
+      "phone": "65656565",
+      "subdivision": 3
+    }
+  },
+  {
+    "model": "contacts.contact",
+    "pk": 19,
+    "fields": {
+      "full_name": "Кирилл Васькин",
+      "photo": "",
+      "phone": "65454545",
+      "subdivision": 4
+    }
   }
 ]

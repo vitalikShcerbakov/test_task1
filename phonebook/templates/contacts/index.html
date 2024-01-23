@@ -13,6 +13,20 @@
         <a href='{% url "contacts:export_data" %}'> Экспорт данных json</a>  |
     </h3>
 
+    <form method="get" action="{% url 'contacts:index' %}">
+        {{ search_form.as_p }}
+        <button type="submit">Искать</button>
+    </form>
+    
+    {% if results %}
+        <h2>Результаты поиска:</h2>
+        <ul>
+            {% for result in results %}
+                <li>{{ result.full_name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
  <table>
        <colgroup>
          <col style="background-color: rgb(0, 255, 0)"/>

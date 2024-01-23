@@ -1,6 +1,11 @@
 from django.forms import ModelForm
+from django import forms
 
 from .models import Contact, Subdivision
+
+
+class SearchForm(forms.Form):
+    search_query = forms.CharField(label='Поиск', max_length=100)
 
 
 class SubdivisionForm(ModelForm):
